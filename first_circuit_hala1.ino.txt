@@ -1,0 +1,54 @@
+const byte led = 6;
+const byte button = 4;
+int ledstate = LOW;
+int debouncedelay = 10;
+int lastbuttonstate = LOW;
+int buttonstate = LOW;
+unsigned long lastdebouncetime = 0;
+
+void setup() 
+{
+ pinMode(led,OUTPUT);
+ pinMode(button,INPUT);
+}
+
+void loop() 
+{
+  ButtonDebounce();
+}
+
+void ButtonDebounce()
+{
+ 
+  int readbutton = digitalRead(button);
+    if(lastbuttonstate != readbutton)
+  {
+    lastdebouncetime = millis();
+  }
+ 
+  if(millis() - lastdebouncetime > debouncedelay)
+  {
+   
+   if(buttonstate!=readbutton) 
+   {
+     buttonstate = readbutton;
+     if(buttonstate == HIGH)
+     {
+       ledstate = !ledstate;
+     }
+   }
+  }
+  
+  digitalWrite(led,ledstate);
+  lastbuttonstate = readbutton;
+}
+
+void ButtonWithoutDebounce()
+{
+  int readbutton = digitalRead(button);
+ if(readbutton == HIGH)
+ {
+   ledstate = !ledstate;
+ }
+ digitalWrite(led,ledstate);
+}

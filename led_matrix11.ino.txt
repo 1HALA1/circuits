@@ -1,0 +1,34 @@
+const int X1 = 6;  
+const int X3 = 4;  
+const int X4 = 3;  
+const int X5 = 2; 
+
+const int Y1=  A1;
+const int Y2=  A2; 
+const int Y3=  A3; 
+const int Y4=  A4; 
+const int Y5=  A5; 
+
+void setup()
+{
+  pinMode(X1, OUTPUT);   
+  pinMode(X2, OUTPUT);
+  pinMode(X3, OUTPUT);
+  pinMode(X4, OUTPUT);
+  pinMode(X5, OUTPUT);
+  
+  pinMode(Y1, OUTPUT);
+  pinMode(Y2, OUTPUT);
+  pinMode(Y3, OUTPUT);
+  pinMode(Y4, OUTPUT);
+  pinMode(Y5, OUTPUT);
+}
+
+void loop()
+{
+  digitalWrite(Y4, HIGH); 
+  digitalWrite(X2, HIGH);
+  digitalWrite(Y3, HIGH);
+      
+}
+
